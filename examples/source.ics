@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Synthetic busy-window example//EN
+BEGIN:VEVENT
+UID:example-daily@invalid.example
+DTSTART:20261102T090000Z
+DTEND:20261102T100000Z
+RRULE:FREQ=DAILY;COUNT=3
+EXDATE:20261103T090000Z
+SUMMARY:Synthetic private meeting title
+DESCRIPTION:This is deliberately public demonstration data.
+ATTENDEE:mailto:person@example.invalid
+URL:https://example.invalid/private-meeting
+END:VEVENT
+BEGIN:VEVENT
+UID:example-overlap@invalid.example
+DTSTART:20261104T093000Z
+DTEND:20261104T103000Z
+SUMMARY:Synthetic overlapping event
+END:VEVENT
+END:VCALENDAR

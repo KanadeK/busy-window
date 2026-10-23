@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.png binary
+*.zip binary
+*.whl binary
+# The verbatim upstream RST license has a seven-equals-sign heading, not a merge conflict.
+third_party_licenses/icalendar-LICENSE.rst conflict-marker-size=32
