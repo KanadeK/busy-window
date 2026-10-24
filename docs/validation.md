@@ -14,3 +14,8 @@ Commands are in CONTRIBUTING.md and scripts/verify_install.py. Tests use synthet
 Direct runtime/build requirements and the complete resolved local quality environment were checked with pip-audit 2.10.1; final scans found no known vulnerabilities. The prior setuptools 80.9.0 pin hit GHSA-h35f-9h28-mq5c and was replaced before shipping. Vulnerability databases change; this is a dated result, not a permanent guarantee.
 
 Extra review: a real pathological secondly recurrence from 1900 was terminated by the CLI after about 30 seconds, returning worker_time_limit with no partial output. Two low-severity Bandit notices concern subprocess import/invocation; the command is a list headed by the current Python executable, invokes only the fixed local worker module, uses no shell, and is the tested recurrence time-isolation mechanism.
+
+Before publication, the cooperative deadline test was made independent of wall-clock resolution.
+A controlled clock expires at both the first and a later recurrence, keeping the actual timeout
+error assertions. The separate real pathological recurrence experiment above still checks the
+CLI's child-process wall-time limit.

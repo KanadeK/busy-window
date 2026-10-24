@@ -316,8 +316,13 @@ class ProjectionTests(unittest.TestCase):
         raw = calendar(event(extra="RRULE:FREQ=DAILY;COUNT=5"))
         with self.assertRaisesRegex(CalendarError, "occurrence_count_limit"):
             self.run_projection(raw, max_occurrences=2)
-        with self.assertRaisesRegex(CalendarError, "recurrence_time_budget"):
-            self.run_projection(raw, timeout_seconds=1e-12)
+        # Advance a controlled clock; real I/O can finish within one Windows
+        # monotonic-clock tick. Check expiry at the first and a later occurrence.
+        for ticks in ([100.0, 101.0], [100.0, 100.0, 101.0]):
+            with self.subTest(ticks=ticks):
+                with patch("busy_window.core.time.monotonic", side_effect=ticks):
+                    with self.assertRaisesRegex(CalendarError, "recurrence_time_budget"):
+                        self.run_projection(raw, timeout_seconds=0.5)
 
 
 class CLITests(unittest.TestCase):
