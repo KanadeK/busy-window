@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 (release candidate)
+## 0.1.0 — 2026-10-24
 
 - Expand recurring VEVENT calendar snapshots for a finite local date window.
 - Preserve recurrence exclusions/overrides and timezone/DST occupancy semantics.

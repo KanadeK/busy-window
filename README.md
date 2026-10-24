@@ -14,6 +14,8 @@ into the output. It reads local `.ics` files and requires no calendar account or
 Python 3.11+ is required. Use a virtual environment so dependencies remain easy to remove.
 
 ```console
+git clone https://github.com/KanadeK/busy-window.git
+cd busy-window
 python -m venv .venv
 ```
 
